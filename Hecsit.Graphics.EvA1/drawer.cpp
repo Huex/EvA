@@ -1,20 +1,4 @@
-#include "stdafx.h"
 #include "drawer.h"
-
-
-Drawer::Drawer()
-{
-}
-
-
-Drawer::~Drawer()
-{
-}
-
-int Drawer::Size()
-{
-	return _drawQueue.size();
-}
 
 void Drawer::Add(Drawable * drawable)
 {

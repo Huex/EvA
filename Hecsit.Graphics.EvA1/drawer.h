@@ -5,12 +5,10 @@
 class Drawer
 {
 public:
-	Drawer();
-	~Drawer();
-	int Size();
+	Drawer(){};
+	~Drawer(){};
 	void Add(Drawable *);
 	void Run();
 private:
 	std::queue<Drawable *> _drawQueue;
 };
-

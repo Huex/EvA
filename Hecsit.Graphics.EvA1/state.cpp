@@ -1,9 +1,9 @@
-#include "stdafx.h"
 #include "state.h"
 
 
-GameState::GameState()
+GameState::GameState(State state)
 {
+	SetStatus(state);
 	InitEvents();
 }
 
@@ -19,18 +19,16 @@ void GameState::SetStatus(State state)
 
 void GameState::InitEvents()
 {
-	_events.goDown = false;
-	_events.goUp = false;
-	_events.goLeft = false;
-	_events.goRight = false;
+	_wasd.OX = 0;
+	_wasd.OY = 0;
+
+	_arrows.OX = 0;
+	_arrows.OY = 0;
+
+	_space = false;
 }
 
 GameState::State GameState::GetStatus()
 {
 	return _status;
-}
-
-GameState::ActivatedEvents * GameState::GetEvents()
-{
-	return &_events;
 }

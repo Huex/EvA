@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Drawer" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAAAAAQAI=</HashCode>
+      <FileName>drawer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FontHelper" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>font.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAABABMDIAIEACgAFCAEICAAnAAgIIAQAACIgASAE=</HashCode>
+      <FileName>game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Keyboard" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAIAABAAAAACAAAAAAAAAAQAAAAAAAAAABAAAAI=</HashCode>
+      <FileName>keyboard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAABAAAAAQAAAAAAAAEQAgAAAAAAACAAAAAIBA=</HashCode>
+      <FileName>state.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TexHelper" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAAgQUgFAAAAEEAAIQEAQAgAAAAEAICQCAAI=</HashCode>
+      <FileName>texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAiEAAgAIAAAIAAIAgAAABAAAAIAIKAA=</HashCode>
+      <FileName>character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Drawable" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>drawable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Body" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAgEEAAgCAAAABAAoCAAAAkAAGBBAQiCAAAAI=</HashCode>
+      <FileName>body.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Poof" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAEAAAgAAAAAAEAACAAIAAAACAAACBAQAAAA=</HashCode>
+      <FileName>poof.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAgAAABAAAAACAAAAAEAEAAAAAAAAAAA=</HashCode>
+      <FileName>room.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shot" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAABIiAAEAhAAgAAAAAIAIAAFAgAAAAIAAI=</HashCode>
+      <FileName>shot.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACAAEFAACgBAAAIAAAACQAAAAAIAAAUEAAAQEAI=</HashCode>
+      <FileName>ui.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Worm" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECgAAAAAAAIyCAAAAAAAAQAIIAAAAAAAAQAAAIAAI=</HashCode>
+      <FileName>worm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zombie" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAEAACIiAAAAAAAABYEAIAAAAABBAAAAAIAAA=</HashCode>
+      <FileName>zombie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Orientation" Collapsed="true">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAgAAAAAAAAAAAAAAAABAAAAAACAAAAAAA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Position" Collapsed="true">
+    <Position X="18.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAACAAAAYAA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Coord" Collapsed="true">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAACAACEAAA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Size" Collapsed="true">
+    <Position X="20" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAAAEAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TexProperty" Collapsed="true">
+    <Position X="18.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICAAgAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DrawProperty" Collapsed="true">
+    <Position X="18.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAAQAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="HandTimer" Collapsed="true">
+    <Position X="20" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAiAAAAASA=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TexImage" Collapsed="true">
+    <Position X="16.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgAAAAAAAAMAAAQgAAAAAAQACAAAAAAI=</HashCode>
+      <FileName>structures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,10 +1,9 @@
 #pragma once
+#include "structures.h"
+
 class GameState
 {
 public:
-	GameState();
-	~GameState();
-
 	enum State
 	{
 		Game,
@@ -12,21 +11,18 @@ public:
 		Pause
 	};
 
-	struct ActivatedEvents
-	{
-		bool goUp;
-		bool goDown;
-		bool goLeft;
-		bool goRight;
-	};
+	GameState(State);
+	~GameState();
+
+	Orientation _wasd, _arrows;
+
+	bool _space;
 
 	State GetStatus();
-	ActivatedEvents * GetEvents();
 	void SetStatus(State);
 	void InitEvents();
 private:
 	State _status;
-	ActivatedEvents _events;
 };
 
 

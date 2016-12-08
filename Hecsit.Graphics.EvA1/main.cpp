@@ -1,81 +1,62 @@
-//  определяет точку входа для консольного приложения.
-//
-
-#include "stdafx.h"
 #include "game.h"
 #include <iostream>
+#include<OpenGL/glew.h>
+#include<OpenGL/glut.h>
+#include "font.h"
+#include <windows.h>
 
-int RESOLUTION_WIDTH = 960;
-int RESOLUTION_HEIGHT = 540;
-float RATIO = (float)RESOLUTION_WIDTH / RESOLUTION_HEIGHT;
+int RESOLUTION_HEIGHT;
+int RESOLUTION_WIDTH;
+float RATIO;
 char* TITLE = "EvA";
 float FRAMES_PER_SECOND;
 float TIME_PER_FRAME;
 
 Game * game;
-FontHelper * fpsFont;
 
-void calculateFrameRate()
-{
-	static float framesPerSecond = 0.0f;
-	static float lastTime = 0.0f;
-	float currentTime = GetTickCount() * 0.001f;
-	++framesPerSecond;
-	if (currentTime - lastTime > 1.0f)
+void reshape(int width, int height)
+{	
+
+	RESOLUTION_WIDTH = width;
+	RESOLUTION_HEIGHT = height;
+	float ratio = RESOLUTION_WIDTH * 1.0 / RESOLUTION_HEIGHT;
+	if(ratio >=4.0/3)
 	{
-		lastTime = currentTime;
-		FRAMES_PER_SECOND = framesPerSecond;
-		framesPerSecond = 0;
+		glViewport(0, RESOLUTION_HEIGHT / 2 - RESOLUTION_WIDTH / 2, RESOLUTION_WIDTH, RESOLUTION_WIDTH);
+	}
+	if (ratio < 4.0/3)
+	{
+		glViewport(RESOLUTION_WIDTH / 2 - RESOLUTION_HEIGHT / 2, 0, RESOLUTION_HEIGHT, RESOLUTION_HEIGHT);
 	}
 }
 
-void printFrameRate()
+void calculateFPS()
 {
-	glMatrixMode(GL_PROJECTION);
-	glPushMatrix();
-	glLoadIdentity();
-	glOrtho(0, RESOLUTION_WIDTH, RESOLUTION_HEIGHT, 0, 0, 1);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glDisable(GL_DEPTH_TEST);
-	glColor3f(1.0f, 1.0f, 1.0f);
-
-	wchar_t buf[256];
-	swprintf(buf, sizeof(buf), L"%f|%f", FRAMES_PER_SECOND, TIME_PER_FRAME);
-	fpsFont->Print(10, 20, buf);
-
-	glEnable(GL_DEPTH_TEST);
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	glMatrixMode(GL_MODELVIEW);
-}
-
-void reshape(int width, int height)
-{
-	glViewport(0, 0, width, height);
-	glutPostRedisplay();
+	static int frame;
+	static long time, timebase;
+	frame++;
+	time = glutGet(GLUT_ELAPSED_TIME);
+	if (time - timebase > 1000) {
+		FRAMES_PER_SECOND = frame*1000.0 / (time - timebase);
+		timebase = time;
+		frame = 0;
+	}
 }
 
 void idle()
 {
-
-#define LIMIT_OF_FPS
-#ifdef LIMIT_OF_FPS
-	static float previousClock = glutGet(GLUT_ELAPSED_TIME);
-	static float clock = glutGet(GLUT_ELAPSED_TIME);
+// ОГРАНИЧЕНИЕ (каждые 15мс или дольше отрисовка одного кадра)!!!
 	static float deltaT;
-	clock = glutGet(GLUT_ELAPSED_TIME);
-	deltaT = clock - previousClock;
-
-	if (deltaT < 15) return;                  // ОГРАНИЧЕНИЕ (каждые 15мс отрисовка 1го кадра)!!!
-
-	TIME_PER_FRAME = deltaT;
-	previousClock = clock;
-#endif
-
-	calculateFrameRate();	
-	glutPostRedisplay();
-
+	static float frameTime = 0.0f;  // Время последнего кадра
+	float currentTime = glutGet(GLUT_ELAPSED_TIME);
+	// Интервал времени, прошедшего с прошлого кадра
+	deltaT = currentTime - frameTime;
+	frameTime = currentTime;
+	if (deltaT >= 15)
+	{
+		TIME_PER_FRAME = deltaT;
+		glutPostRedisplay();
+	}
 }
 
 
@@ -91,42 +72,42 @@ void keyboardSpecialUp(int key, int x, int y)
 
 void keyboard(unsigned char key, int x, int y)
 {
-	game->GetKeyboardHandler()->Up(key, x, y);
+	game->GetKeyboardHandler()->Down(key, x, y);
 };
 
 void keyboardUp(unsigned char key, int x, int y)
 {
-	game->GetKeyboardHandler()->Down(key, x, y);
+	game->GetKeyboardHandler()->Up(key, x, y);
 };
 
 void test()
 {
-	printFrameRate();
+	
 	game->Frame();
+
+	char FPS[256];
+	sprintf(FPS, "FPS:%4.2f", FRAMES_PER_SECOND);
+	FontHelper::Render(-0.85,0.48, GLUT_BITMAP_HELVETICA_18, FPS);
+
 };
 
 void display()
 {
-	glClearColor(0, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.0);
+	gluOrtho2D(-1, 1, -1, 1);
+	calculateFPS();
+
 	test();                        /// кадр! ///
+
 	glutSwapBuffers();
 };
 
-int main(int argc, char* argv[])
+void Init()
 {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
-	glutInitWindowSize(RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
-	glutInitWindowPosition(GLUT_SCREEN_WIDTH, GLUT_SCREEN_HEIGHT / 2);
-	glutCreateWindow(TITLE);
 	glutReshapeFunc(reshape);
 	glutIdleFunc(idle);
 	glutIgnoreKeyRepeat(1);
@@ -135,12 +116,28 @@ int main(int argc, char* argv[])
 	glutSpecialFunc(keyboardSpecial);
 	glutSpecialUpFunc(keyboardSpecialUp);
 	glutDisplayFunc(display);
+
+	glEnable(GL_ALPHA_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+};
+
+int main(int argc, char* argv[])
+{
+
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+	glutInitWindowSize(1024, 640);
+	glutInitWindowPosition(50, 50);
+	glutCreateWindow(TITLE);
 	glewInit();
 
+	Init();
+	
 	game = new Game();
-	fpsFont = new FontHelper("fonts/arial.ttf", 16, -0.2);
 
 	glutMainLoop();
+
     return 0;
 }
 

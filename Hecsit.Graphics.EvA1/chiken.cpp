@@ -16,7 +16,7 @@ void Chiken::Update()
 	{
 		orientation = Up;
 		timerY += TIME_PER_FRAME;
-		if (timerY > 120)
+		if (timerY >= 120)
 		{
 			coord.s -= scale.s;
 			timerX = 0;
@@ -32,7 +32,7 @@ void Chiken::Update()
 	{
 		orientation = Down;
 		timerY += TIME_PER_FRAME;
-		if (timerY > 120)
+		if (timerY >= 120)
 		{
 			coord.s -= scale.s;
 			timerX = 0;
@@ -47,7 +47,7 @@ void Chiken::Update()
 	{
 		orientation = Left;
 		timerX += TIME_PER_FRAME;
-		if (timerX > 120)
+		if (timerX >= 120)
 		{
 			coord.s -= scale.s;
 			timerX = 0;
@@ -63,7 +63,7 @@ void Chiken::Update()
 	{
 		orientation = Right;
 		timerX +=  TIME_PER_FRAME;
-		if (timerX > 120)
+		if (timerX >= 120)
 		{
 			coord.s -= scale.s;
 			timerX = 0;
@@ -113,37 +113,38 @@ void Chiken::Draw()
 	if (orientation == Left)
 	{
 		coord.t = float(1) / 3;
-		glTexCoord2f(coord.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 0);
+		glTexCoord2f(coord.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 5);
 	}
 	if (orientation == Right)
 	{
 		coord.t = float(1) / 3;
-		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 0);
+		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 5);
 	}
 	if (orientation == Up)
 	{
 		coord.t = float(3) / 3;
-		glTexCoord2f(coord.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 0);
+		glTexCoord2f(coord.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 5);
 	}
 	if (orientation == Down)
 	{
 		coord.t = float(2) / 3;
-		glTexCoord2f(coord.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 0);
-		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 0);
+		glTexCoord2f(coord.s, coord.t); glVertex3f(-0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t); glVertex3f(0.1 + x, (-0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s + scale.s, coord.t - scale.t); glVertex3f(0.1 + x, (0.1 + y) * RATIO, 5);
+		glTexCoord2f(coord.s, coord.t - scale.t); glVertex3f(-0.1 + x, (0.1 + y) * RATIO, 5);
 	}
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 
-	dx = dy = 0;
+	dx =0;
+	dy =0;
 }

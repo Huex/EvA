@@ -13,14 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Заголовочные файлы\Drawable">
+      <UniqueIdentifier>{659ddf40-30f5-4a94-9ea2-d36b67e4c895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Drawable">
+      <UniqueIdentifier>{1463dac4-321b-4d18-abb0-66ad8e63bea5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chiken.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="drawable.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="drawer.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
@@ -36,20 +36,41 @@
     <ClInclude Include="state.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="texture.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="room.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="drawable.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="shot.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="worm.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="zombie.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="structures.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="poof.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="body.h">
+      <Filter>Заголовочные файлы\Drawable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chiken.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="drawer.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="font.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
@@ -65,11 +86,38 @@
     <ClCompile Include="state.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="room.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="drawer.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="character.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="shot.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="worm.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="ui.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="zombie.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="poof.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="body.cpp">
+      <Filter>Файлы исходного кода\Drawable</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
